@@ -49,7 +49,23 @@
 
   <!-- 🔻 Replace this script with the one from Salesforce Embedded Service -->
   <script type='text/javascript'>
-    // Your Salesforce Embedded Service code will go here
-  </script>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'fr'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DAW00000F95O1',
+				'PROACHAT_Chatbot',
+				'https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099',
+				{
+					scrt2URL: 'https://proachat--proapart.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
