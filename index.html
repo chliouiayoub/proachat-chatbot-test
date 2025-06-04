@@ -33,19 +33,6 @@
       font-size: 0.9em;
       color: #999;
     }
-    .chat-button {
-      margin-top: 30px;
-      padding: 12px 24px;
-      background-color: #0070d2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    .chat-button:hover {
-      background-color: #005bb5;
-    }
   </style>
 </head>
 <body>
@@ -53,52 +40,58 @@
     <h1>Welcome to PROACHAT Chatbot</h1>
   </header>
   <div class="content">
-    <p>Click the button below to start a conversation with our virtual assistant.</p>
+    <p>Click the chat button in the bottom-right corner to start a conversation with our virtual assistant.</p>
     <p>This page is for testing Einstein Bot embedded with Salesforce.</p>
-    <button class="chat-button" onclick="startChat()">Start Chat</button>
   </div>
   <footer>
     &copy; 2025 PROACHAT | Test environment
   </footer>
 
+  <!-- 🔻 Replace this script with the one from Salesforce Embedded Service -->
+   <script type='text/javascript'>
+    window.embedded_svcSettings = function(embedded_svc) {
+        embedded_svc.settings.displayHelpButton = true;  // Show the chat icon
+        embedded_svc.settings.autoOpenChat = false;      // Prevent automatic opening
+    };
+</script>
   <script type='text/javascript'>
-    function startChat() {
-      if (window.embeddedservice_bootstrap && typeof embeddedservice_bootstrap.showChatButton === 'function') {
-        embeddedservice_bootstrap.showChatButton();
-      } else {
-        console.warn("Chat button not ready yet.");
-      }
-    }
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'fr'; // For example, enter 'en' or 'en-US'
+            embedded_svc.settings.smallCompanyLogoImgURL = "https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png";
+            embedded_svc.settings.avatarImgURL ="https://proachat--proapart--c.sandbox.vf.force.com/resource/bot_avatar";
+            embedded_svc.settings.chatbotAvatarImgURL ="https://proachat--proapart--c.sandbox.vf.force.com/resource/bot_avatar";
+            window.addEventListener("onEmbeddedMessagingReady", () => {
+                console.log("Inside Prechat API!");
 
-    function initEmbeddedMessaging() {
-      try {
-        embeddedservice_bootstrap.settings.language = 'fr';
-        embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true; // Hide initially
+                // Simulated login state and user ID for test
+                const customerId = "TestUser123"; // Replace with dynamic session logic
+                const isSignedIn = true;          // Simulate signed-in status
 
-        window.addEventListener("onEmbeddedMessagingReady", () => {
-          const customerId = "TestUser123";
-          const isSignedIn = true;
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                "CustomerId": customerId,
+                "IsSignedIn": isSignedIn.toString() // Must be string: "true" or "false"
+                });
 
-          embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "CustomerId": customerId,
-            "IsSignedIn": isSignedIn.toString()
-          });
-        });
+                console.log("Pre-chat fields set:", {
+                CustomerId: customerId,
+                IsSignedIn: isSignedIn.toString()
+                });
+            });
 
-        embeddedservice_bootstrap.init(
-          '00DAW00000F95O1',
-          'PROACHAT_Chatbot',
-          'https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099',
-          {
-            scrt2URL: 'https://proachat--proapart.sandbox.my.salesforce-scrt.com'
-          }
-        );
-      } catch (err) {
-        console.error('Error loading Embedded Messaging: ', err);
-      }
-    }
-  </script>
-
-  <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+			embeddedservice_bootstrap.init(
+				'00DAW00000F95O1',
+				'PROACHAT_Chatbot',
+				'https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099',
+				{
+					scrt2URL: 'https://proachat--proapart.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
