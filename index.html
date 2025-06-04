@@ -49,16 +49,18 @@
 
   <!-- 🔻 Replace this script with the one from Salesforce Embedded Service -->
   <script type='text/javascript'>
+    window.embedded_svcSettings = function(embedded_svc) {
+        embedded_svc.settings.displayHelpButton = true;  // Show the chat icon
+        embedded_svc.settings.autoOpenChat = false;      // Prevent automatic opening
+    };
+</script>
+  <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'fr'; // For example, enter 'en' or 'en-US'
             //embedded_svc.settings.smallCompanyLogoImgURL = "https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png";
             //embedded_svc.settings.avatarImgURL ="https://proachat--proapart--c.sandbox.vf.force.com/resource/bot_avatar";
             //embedded_svc.settings.chatbotAvatarImgURL ="https://proachat--proapart--c.sandbox.vf.force.com/resource/bot_avatar";
-            window.embedded_svcSettings = function (embedded_svc) {
-                embedded_svc.settings.displayHelpButton = true; // show the chat bubble
-                embedded_svc.settings.autoOpenChat = false;     // do not auto-open on page load
-            };
             window.addEventListener("onEmbeddedMessagingReady", () => {
                 console.log("Inside Prechat API!");
 
