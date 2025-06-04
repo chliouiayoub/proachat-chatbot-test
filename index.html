@@ -54,17 +54,17 @@
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
 
-        // ✅ Optional visual customization
+        // ✅ Custom chat bubble icon
         embeddedservice_bootstrap.settings.chatButtonPosition = 'bottom-right';
         embeddedservice_bootstrap.settings.chatButtonIconURL = 'https://proachat--proapart--c.sandbox.vf.force.com/resource/bot_avatar';
 
-        // ✅ Avoid auto-opening
+        // ✅ Optional: control launcher behavior
         embeddedservice_bootstrap.settings.hideChatButtonOnLoad = false;
 
+        // ✅ Pre-chat field example (replace with dynamic code as needed)
         window.addEventListener("onEmbeddedMessagingReady", () => {
           console.log("Chat is ready.");
 
-          // You can dynamically pass these via pre-chat form or session later
           const firstName = "Jean";
           const customerId = "TestUser123";
           const isSignedIn = true;
