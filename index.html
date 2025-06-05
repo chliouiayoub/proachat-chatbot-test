@@ -67,7 +67,7 @@
     var sSubject = "Test Subject";
     var sCustomerID = "12345678";
     var sShoppingCartValue = "1000";
-    var isSignedIn = "true";
+    var isSignedIn = "gg";
         
     window.addEventListener("onEmbeddedMessagingReady", e => {
         //log event
@@ -95,7 +95,7 @@
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
             "Shopping_Cart_Value" : sShoppingCartValue,
             "Customer_ID" : sCustomerID,
-            "IsignedIn" : IsignedIn
+            "IsSignedIn" : IsSignedIn
         });
     });
     //Passing Web Context to Prechat - END
