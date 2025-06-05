@@ -88,17 +88,14 @@
             "_subject": {
               "value": "test subject",
               "isEditableByEndUser": true
-            },
-            "_IsSignedIn": {
-              "value": "true",
-              "isEditableByEndUser": true
-            }
+            }   
         });
       
         //Set invisible prechat field
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
             "Shopping_Cart_Value" : sShoppingCartValue,
-            "Customer_ID" : sCustomerID
+            "Customer_ID" : sCustomerID,
+            "IsignedIn" : IsignedIn
         });
     });
     //Passing Web Context to Prechat - END
