@@ -98,5 +98,23 @@
   </script>
 
   <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+  <button id="launchChatButton" onclick="launchChat()" style="background: none; border: none;">
+    <img src="https://proachat--proapart.sandbox.my.salesforce.com/sfc/p/AW00000F95O1/a/AW000000JoNk/rujSBDlQD6ry7KefmNaQ3wClbEiSe7uU3EjJBfBNJww" alt="Chat with us" width="60" height="60"/>
+</button>
+<script>
+    function launchChat() {
+        embeddedservice_bootstrap.utilAPI.launchChat()
+            .then(() => {
+                document.getElementById("launchChatButton").style.display = "none"; // Optionnel
+                console.log("Chat lancé avec succès.");
+            }).catch(() => {
+                alert("Le chat n'a pas pu être lancé.");
+                console.error("Erreur lors du lancement du chat.");
+            }).finally(() => {
+                console.log("Tentative de lancement du chat terminée.");
+            });
+    }
+</script>
+
 </body>
 </html>
