@@ -49,12 +49,10 @@
     &copy; 2025 PROACHAT | Test environment
   </footer>
 
-  <!-- <script type='text/javascript'>
+  <script type='text/javascript'>
     function initEmbeddedMessaging() {
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
-
-        embeddedservice_bootstrap.utilAPI.hideChatButton();
 
         
       window.addEventListener("onEmbeddedMessagingReady", () => {            
@@ -118,48 +116,8 @@
                 logEndUserAttemptToChat();
             });
     }
-</script> -->
-
-<script type='text/javascript'>
-  // Set Embedded Service configuration
-  window.addEventListener('load', function () {
-    if (typeof embedded_svc === "undefined") {
-      console.error("Salesforce Embedded Service script not loaded.");
-      return;
-    }
-
-    // Set basic settings
-    embedded_svc.settings.displayHelpButton = false; // Hide Salesforce default button
-    embedded_svc.settings.language = 'fr';
-
-    // Optional: Add prechat hidden fields
-    window.addEventListener("onEmbeddedMessagingReady", () => {
-      console.log("Embedded Messaging is ready.");
-      // Example hidden prechat field
-      embedded_svc.prechatAPI.setHiddenPrechatFields({ "IsSignedIn": "false" });
-    });
-  });
-
-  // Custom button click handler
-  function bootstrapChat() {
-    if (typeof embedded_svc !== "undefined" && embedded_svc.bootstrapEmbeddedService) {
-      embedded_svc.bootstrapEmbeddedService({
-        baseCoreURL: 'https://proachat--proapart.sandbox.my.salesforce.com',
-        communityEndpointURL: 'https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099'
-      });
-    } else {
-      console.error("Embedded Service is not ready or bootstrap function is missing.");
-    }
-  }
+    embeddedservice_bootstrap.utilAPI.hideChatButton();
 </script>
-
-<!-- Required Salesforce script -->
-<script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js'></script>
-<button id="launchChatButton" onclick="bootstrapChat()">
-  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png" 
-       alt="Chat with us" width="55" height="55" style="border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"/>
-</button>
-
 
 </body>
 </html>
