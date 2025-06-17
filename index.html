@@ -54,7 +54,6 @@
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
 
-        embeddedservice_bootstrap.utilAPI.hideChatButton();
       window.addEventListener("onEmbeddedMessagingReady", () => {            
               console.log( "Inside Prechat API!!" );
               embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "IsSignedIn" : "false" } );
@@ -76,45 +75,28 @@
 
   <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<style>
-  #launchChatButton {
-    position: fixed;
-    bottom: 20px;
-    right: 25px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 9999;
-  }
-
-  #launchChatButton img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-</style>
-
-<button id="launchChatButton" onclick="launchChat()"> 
-  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
-</button>
-
+<button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
 
 <script>
     function launchChat() {
         embeddedservice_bootstrap.utilAPI.launchChat()
             .then(() => {
-                
+                // Success handler used to perform actions
+                // when the chat client launches successfully.
+                // For example, create a method that disables the launch chat button.
                 disableLaunchChatButton();
             }).catch(() => {
-                
+                // Error handler used to perform actions
+                // if the chat client fails to launch.
+                // For example, create a method that hides the launch chat button.
                 hideLaunchChatButton();
             }).finally(() => {
-                
+                // Finally handler used to perform any clean-up actions
+                // regardless of whether the chat client launches successfully or not.
+                // For example, create a method that logs the user’s attempt to chat.
                 logEndUserAttemptToChat();
             });
     }
-    
 </script>
 
 </body>
