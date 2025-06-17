@@ -54,7 +54,7 @@
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
 
-        embeddedservice_bootstrap.utilAPI.hideChatButton();
+        embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 
         //Passing Web Context to Prechat - BEGIN
     
@@ -106,8 +106,8 @@
   }
 
   #launchChatButton img {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
