@@ -58,7 +58,7 @@
               console.log( "Inside Prechat API!!" );
               embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "IsSignedIn" : "false" } );
             });
-
+document.getElementById("launchChatButton").style.display = "block";
         embeddedservice_bootstrap.init(
           '00DAW00000F95O1',
           'PROACHAT_Chatbot',
@@ -75,7 +75,30 @@
 
   <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
+<style>
+  #launchChatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    display: none; /* Hidden until ready */
+  }
+
+  #launchChatButton img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+</style>
+
+<button id="launchChatButton" onclick="launchChat()"> 
+  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png" alt="Chat with us"/>
+</button>
+
 
 <script>
     function launchChat() {
