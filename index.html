@@ -54,12 +54,7 @@
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
 
-        // ✅ Custom chat bubble icon
-        embeddedservice_bootstrap.settings.chatButtonPosition = 'bottom-right';
-        embeddedservice_bootstrap.settings.chatButtonIconURL = 'https://proachat--proapart.sandbox.my.salesforce.com/sfc/p/AW00000F95O1/a/AW000000JoNk/rujSBDlQD6ry7KefmNaQ3wClbEiSe7uU3EjJBfBNJww';
-
-        // ✅ Optional: control launcher behavior
-        embeddedservice_bootstrap.settings.hideChatButtonOnLoad = false;
+        embeddedservice_bootstrap.utilAPI.hideChatButton();
 
         //Passing Web Context to Prechat - BEGIN
     
@@ -99,8 +94,27 @@
 
   <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<button id="launchChatButton" onclick="launchChat()">
-  <img src="https://proachat--proapart.sandbox.my.salesforce.com/sfc/p/AW00000F95O1/a/AW000000JoNk/rujSBDlQD6ry7KefmNaQ3wClbEiSe7uU3EjJBfBNJww" alt="Chat with us" width="60" height="60"/>
+<style>
+  #launchChatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+  }
+
+  #launchChatButton img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+</style>
+
+<button id="launchChatButton" onclick="launchChat()"> 
+  <img src="https://proachat--proapart.sandbox.my.salesforce.com/sfc/p/AW00000F95O1/a/AW000000JoNk/rujSBDlQD6ry7KefmNaQ3wClbEiSe7uU3EjJBfBNJww" alt="Chat with us"/>
 </button>
 
 
