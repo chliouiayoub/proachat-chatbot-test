@@ -54,7 +54,7 @@
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
 
-        embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+        embeddedservice_bootstrap.utilAPI.hideChatButton();
 
         //Passing Web Context to Prechat - BEGIN
     
@@ -98,7 +98,7 @@
   #launchChatButton {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 25px;
     background-color: transparent;
     border: none;
     cursor: pointer;
