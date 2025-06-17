@@ -54,7 +54,7 @@
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
 
-        
+        embeddedservice_bootstrap.utilAPI.hideChatButton();
       window.addEventListener("onEmbeddedMessagingReady", () => {            
               console.log( "Inside Prechat API!!" );
               embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "IsSignedIn" : "false" } );
@@ -78,7 +78,7 @@
 
   <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<!-- <style>
+<style>
   #launchChatButton {
     position: fixed;
     bottom: 20px;
@@ -95,10 +95,11 @@
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
-</style> -->
+</style>
 
 <button id="launchChatButton" onclick="launchChat()"> 
-  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
+  Click to contact support
+  <!--  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/> -->
 </button>
 
 
@@ -116,7 +117,7 @@
                 logEndUserAttemptToChat();
             });
     }
-    //embeddedservice_bootstrap.utilAPI.hideChatButton();
+    
 </script>
 
 </body>
