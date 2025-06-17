@@ -58,7 +58,9 @@
               console.log( "Inside Prechat API!!" );
               embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "IsSignedIn" : "false" } );
             });
-embeddedservice_bootstrap.utilAPI.hideChatButton();
+
+        embeddedservice_bootstrap.utilAPI.hideChatButton();
+
         embeddedservice_bootstrap.init(
           '00DAW00000F95O1',
           'PROACHAT_Chatbot',
@@ -70,7 +72,6 @@ embeddedservice_bootstrap.utilAPI.hideChatButton();
       } catch (err) {
         console.error('Error loading Embedded Messaging: ', err);
       }
-      embeddedservice_bootstrap.utilAPI.hideChatButton();
     }
   </script>
 
@@ -95,11 +96,6 @@ embeddedservice_bootstrap.utilAPI.hideChatButton();
   }
 </style>
 
-<button id="launchChatButton" onclick="launchChat()"> 
-  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
-</button>
-
-
 <script>
     function launchChat() {
         embeddedservice_bootstrap.utilAPI.launchChat()
@@ -116,6 +112,10 @@ embeddedservice_bootstrap.utilAPI.hideChatButton();
     }
     
 </script>
+
+<button id="launchChatButton" onclick="launchChat()"> 
+  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
+</button>
 
 </body>
 </html>
