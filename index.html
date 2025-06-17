@@ -77,6 +77,8 @@
               console.log( "Inside Prechat API!!" );
               embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "IsSignedIn" : "false" } );
             });
+            console.log("Chat ready");
+            document.getElementById("launchChatButton").style.display = "block";
 
         embeddedservice_bootstrap.init(
           '00DAW00000F95O1',
@@ -113,7 +115,7 @@
   }
 </style>
 
-<button id="launchChatButton" onclick="launchChat()"> 
+<button id="launchChatButton" style="display:none;" onclick="launchChat()"> 
   <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
 </button>
 
