@@ -97,13 +97,13 @@
   }
 </style>
 
-<button id="launchChatButton" onclick=launchChat()> 
+<button id="launchChatButton" onclick="bootstrapChat()"> 
   <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
 </button>
 
 
 <script>
-    function launchChat() {
+    /*function launchChat() {
         embeddedservice_bootstrap.utilAPI.launchChat()
             .then(() => {
                 
@@ -116,7 +116,17 @@
                 logEndUserAttemptToChat();
             });
     }
-    embeddedservice_bootstrap.utilAPI.hideChatButton();
+    embeddedservice_bootstrap.utilAPI.hideChatButton();*/
+    function bootstrapChat() {
+  if (typeof embedded_svc !== "undefined" && embedded_svc.bootstrapEmbeddedService) {
+    embedded_svc.bootstrapEmbeddedService({
+      baseCoreURL: 'https://proachat--proapart.sandbox.my.salesforce.com',
+      communityEndpointURL: 'https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099'
+    });
+  } else {
+    console.error("Embedded Messaging not ready.");
+  }
+}
 </script>
 
 </body>
