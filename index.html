@@ -56,6 +56,11 @@
       embeddedservice_bootstrap.utilAPI.hideChatButton();
       // Do something ...
       });
+      window.addEventListener("onEmbeddedMessagingMinimized", () => {
+      console.log("Chat has been minimized");
+      embeddedservice_bootstrap.utilAPI.hideChatButton(); // Hide Salesforce default button
+      document.getElementById("launchChatButton").style.display = "block"; // Show custom button
+      });
   </script>
   <button id="launchChatButton" onclick="launchChat()"> 
     <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
@@ -99,8 +104,8 @@
   }
 
   #launchChatButton img {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
@@ -108,14 +113,13 @@
 
 <script>
     function launchChat() {
-        embeddedservice_bootstrap.utilAPI.launchChat()
-            .then(() => {
-                
-                disableLaunchChatButton();
-            }).catch(() => {
-                
-                hideLaunchChatButton();
-            })
+        document.getElementById("launchChatButton").style.display = "none"; // Hide custom button
+
+    embeddedservice_bootstrap.utilAPI.launchChat()
+      .catch(() => {
+        // If launch fails, show the custom button again
+        document.getElementById("launchChatButton").style.display = "block";
+      });
     }    
 </script>
 
