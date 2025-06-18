@@ -33,6 +33,22 @@
       font-size: 0.9em;
       color: #999;
     }
+    #launchChatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+  }
+
+  #launchChatButton img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
   </style>
 </head>
 <body>
@@ -92,28 +108,9 @@
 
   <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<style>
-  #launchChatButton {
-    position: fixed;
-    bottom: 20px;
-    right: 24px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 9999;
-  }
-
-  #launchChatButton img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-</style>
-
 <script>
     function launchChat() {
-        //document.getElementById("launchChatButton").style.display = "none"; // Hide custom button
+        document.getElementById("launchChatButton").style.display = "none"; // Hide custom button
 
         embeddedservice_bootstrap.utilAPI.launchChat()
     }    
