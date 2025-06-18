@@ -48,6 +48,18 @@
   <footer>
     &copy; 2025 PROACHAT | Test environment
   </footer>
+  
+  <script>
+      window. addEventListener("onEmbeddedMessagingButtonCreated", (event) => {
+      console. log("Received the onEmbeddedMessagingButtonCreated event ... ");
+      console. log("Event detail: ", event.detail);
+      embeddedservice_bootstrap.utilAPI.hideChatButton();
+      // Do something ...
+      });
+  </script>
+  <button id="launchChatButton" onclick="launchChat()"> 
+    <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
+  </button>
 
   <script type='text/javascript'>
     function initEmbeddedMessaging() {
@@ -58,8 +70,6 @@
               console.log( "Inside Prechat API!!" );
               embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "IsSignedIn" : "false" } );
             });
-
-        embeddedservice_bootstrap.utilAPI.hideChatButton();
 
         embeddedservice_bootstrap.init(
           '00DAW00000F95O1',
@@ -105,17 +115,9 @@
             }).catch(() => {
                 
                 hideLaunchChatButton();
-            }).finally(() => {
-                
-                logEndUserAttemptToChat();
-            });
-    }
-    
+            })
+    }    
 </script>
-
-<button id="launchChatButton" onclick="launchChat()"> 
-  <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/bot_avatar%20(1).png"/>
-</button>
 
 </body>
 </html>
