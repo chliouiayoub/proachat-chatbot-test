@@ -115,11 +115,7 @@
     function launchChat() {
         document.getElementById("launchChatButton").style.display = "none"; // Hide custom button
 
-    embeddedservice_bootstrap.utilAPI.launchChat()
-      .catch(() => {
-        // If launch fails, show the custom button again
-        document.getElementById("launchChatButton").style.display = "block";
-      });
+        embeddedservice_bootstrap.utilAPI.launchChat()
     }    
 </script>
 
