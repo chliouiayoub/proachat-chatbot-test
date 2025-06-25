@@ -79,10 +79,10 @@
       });
   </script>
   <button id="launchChatButton" onclick="launchChat()"> 
-    <img src="https://raw.githubusercontent.com/chliouiayoub/proachat-chatbot-test/refs/heads/master/logoProAchatBot.png"/>
+    <img src="https://proachat.my.salesforce.com/sfc/p/09000007kV6P/a/SZ000007LaSf/Jm3OhSpIoW57tP5GeMBdT7qROHk5RbUxFeQKAwoYuUw"/>
   </button>
 
-  <script type='text/javascript'>
+  <!-- <script type='text/javascript'>
     function initEmbeddedMessaging() {
       try {
         embeddedservice_bootstrap.settings.language = 'fr';
@@ -105,9 +105,32 @@
       }
     }
   </script>
+  <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script> -->
 
-  <script type='text/javascript' src='https://proachat--proapart.sandbox.my.site.com/ESWPROACHATChatbot1748903274099/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+  
 
+   <script type='text/javascript'>
+          function initEmbeddedMessaging() {
+          try {
+          embeddedservice_bootstrap.settings.language = 'fr'; // For example, enter 'en' or 'en-US'
+          window.addEventListener("onEmbeddedMessagingReady", () => {            
+                        console.log( "Inside Prechat API!!" );
+                        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "IsSignedIn" : "false" } );
+                      });
+          embeddedservice_bootstrap.init(
+          '00D09000007kV6P',
+          'PROACHAT_Chatbot',
+          'https://proachat.my.site.com/ESWPROACHATChatbot1750782189955',
+          {
+          scrt2URL: 'https://proachat.my.salesforce-scrt.com'
+          }
+          );
+          } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err);
+          }
+          };
+      </script>
+<script type='text/javascript' src='https://proachat.my.site.com/ESWPROACHATChatbot1750782189955/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 <script>
     function launchChat() {
         document.getElementById("launchChatButton").style.display = "none"; // Hide custom button
